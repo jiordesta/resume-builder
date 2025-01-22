@@ -7,6 +7,7 @@ interface TextInputProps {
   form?: MyForm;
   setForm: React.Dispatch<React.SetStateAction<MyForm | undefined>>;
   dkey: string;
+  placeholder?: string;
 }
 
 export default function TextInput({
@@ -14,6 +15,7 @@ export default function TextInput({
   form,
   setForm,
   dkey,
+  placeholder,
 }: TextInputProps) {
   const [isFocus, setIsFocus] = useState(false);
 
@@ -33,7 +35,7 @@ export default function TextInput({
       <input
         type="text"
         onChange={onInputChange}
-        placeholder={`${isFocus ? "" : ">"}`}
+        placeholder={placeholder}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"

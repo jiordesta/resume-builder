@@ -8,6 +8,7 @@ interface TextAreaProps {
   setForm: React.Dispatch<React.SetStateAction<MyForm | undefined>>;
   dkey: string;
   rows: number;
+  placeholder?: string;
 }
 
 export default function TextArea({
@@ -16,6 +17,7 @@ export default function TextArea({
   setForm,
   dkey,
   rows,
+  placeholder,
 }: TextAreaProps) {
   const [isFocus, setIsFocus] = useState(false);
 
@@ -34,7 +36,7 @@ export default function TextArea({
       <h1 className="glowText uppercase">{label}</h1>
       <textarea
         onChange={onInputChange}
-        placeholder={`${isFocus ? "" : ">"}`}
+        placeholder={placeholder}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         rows={rows}

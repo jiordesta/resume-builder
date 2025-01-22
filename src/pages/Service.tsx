@@ -6,6 +6,11 @@ import { getDeviceType } from "../utilities/getDeviceType";
 import { DeviceType } from "../libs/enums/devices.enum";
 import { MyForm } from "../libs/types/forms";
 import PhysicalAddress from "../components/PhysicalAddress";
+import NameInput from "../components/Name";
+import ContactNumberInput from "../components/ContactNumber";
+import WorkExperience from "../components/WorkExperience";
+import Skills from "../components/Skills";
+import Education from "../components/Education";
 
 export default function Service() {
   const [form, setForm] = useState<MyForm | undefined>();
@@ -20,14 +25,13 @@ export default function Service() {
     <PageLayout id="create">
       <div className="flex gap-2">
         <div className="flex flex-col gap-2 w-full">
-          <TextInput form={form} setForm={setForm} label="name" dkey="name" />
-          <TextInput
+          <NameInput
             form={form}
             setForm={setForm}
-            label="profession"
-            dkey="position"
+            label="full name"
+            dkey="name"
           />
-          <TextInput
+          <ContactNumberInput
             form={form}
             setForm={setForm}
             label="contact number"
@@ -38,6 +42,7 @@ export default function Service() {
             setForm={setForm}
             dkey="email"
             label="email address"
+            placeholder="Personal Email"
           />
           <PhysicalAddress
             form={form}
@@ -59,11 +64,29 @@ export default function Service() {
                 ? 5
                 : 5
             }
+            placeholder="Short Introduction"
+          />
+          <WorkExperience
+            form={form}
+            setForm={setForm}
+            dkey="experiences"
+            label="Work Experience"
+          />
+          <Skills form={form} setForm={setForm} dkey="skills" label="skills" />
+          <Education
+            form={form}
+            setForm={setForm}
+            dkey="education"
+            label="education"
           />
         </div>
         {form ? (
           <div className="w-full bg-lightGray rounded-md p-2 bg-opacity-10">
-            <h1 className="text-3xl font-bold uppercase">{form?.name}</h1>
+            {form?.name && (
+              <h1 className="text-3xl font-bold uppercase">{`${
+                form?.name?.fname ?? ""
+              } ${form?.name?.mname ?? ""} ${form?.name?.lname ?? ""}`}</h1>
+            )}
             <h1 className="capitalize">{form?.position}</h1>
             <h1>{form?.mobile}</h1>
             <h1 className="underline">{form?.email}</h1>

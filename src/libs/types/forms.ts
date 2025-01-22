@@ -1,17 +1,18 @@
 import { Months } from "../enums/months.enum";
 
+export type MyContribution = {
+  id?: string;
+  details: string;
+};
+
 export type MyExperience = {
+  id?: string;
   role: string;
   company: string;
-  startDate: {
-    month: Months;
-    year: number;
-  };
-  endDate: {
-    month: Months;
-    year: number;
-  };
-  contributions: string[];
+  startDate: string;
+  endDate: string;
+  location: string;
+  contributions: MyContribution[];
 };
 
 export type MySkill = {
@@ -43,8 +44,14 @@ export type MyAddress = {
   country: string;
 };
 
+export type Name = {
+  fname: string;
+  mname: string;
+  lname: string;
+};
+
 export type MyForm = {
-  name: string;
+  name: Name;
   position: string;
   mobile: string;
   email: string;
