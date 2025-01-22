@@ -1,30 +1,30 @@
 import { useState } from "react";
-import { MyForm } from "../libs/types/forms";
-import { handleInput } from "../utilities/handleInputs";
+import { MyResume } from "../../libs/types/forms";
+import { handleMyResumeFormChanges } from "../../utilities/handleFormChanges";
 
-interface TextAreaProps {
+interface TextInputProps {
   label: string;
-  form?: MyForm;
-  setForm: React.Dispatch<React.SetStateAction<MyForm | undefined>>;
+  resumeForm: MyResume;
+  setResumeForm: React.Dispatch<React.SetStateAction<MyResume>>;
   dkey: string;
-  rows: number;
   placeholder?: string;
 }
 
-export default function TextArea({
+export default function TextInput({
   label,
-  form,
-  setForm,
+  resumeForm,
+  setResumeForm,
   dkey,
-  rows,
   placeholder,
-}: TextAreaProps) {
+}: TextInputProps) {
   const [isFocus, setIsFocus] = useState(false);
 
   const onInputChange = (e: any) => {
     e.preventDefault();
-    //@ts-ignore
-    setForm(handleInput(form, e.target.value, dkey));
+    const data = {
+      [dkey]: e.target.value,
+    };
+    handleMyResumeFormChanges(resumeForm, setResumeForm, data);
   };
 
   return (
@@ -34,12 +34,12 @@ export default function TextArea({
       } bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300`}
     >
       <h1 className="glowText uppercase">{label}</h1>
-      <textarea
+      <input
+        type="text"
         onChange={onInputChange}
         placeholder={placeholder}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
-        rows={rows}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
     </div>

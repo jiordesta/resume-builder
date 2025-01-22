@@ -1,41 +1,14 @@
-import { Months } from "../enums/months.enum";
-
-export type MyContribution = {
-  id?: string;
-  details: string;
-};
-
-export type MyExperience = {
-  id?: string;
-  role: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  location: string;
-  contributions: MyContribution[];
-};
-
-export type MySkill = {
-  category: string;
-  skills: string[];
-};
-
-export type MyEducation = {
-  school: string;
-  startDate?: {
-    month: Months;
-    year: number;
-  };
-  endDate?: {
-    month: Months;
-    year: number;
-  };
-  address: {
-    city: string;
-    province: string;
-    country: string;
-  };
-  course: string;
+export type MyResume = {
+  id: string;
+  name: MyName;
+  profession: string;
+  summary: string;
+  phone: MyPhone;
+  email: string;
+  address: MyAddress;
+  experiences: MyExperience[];
+  skills: MySkill[];
+  education: MyEducation[];
 };
 
 export type MyAddress = {
@@ -44,20 +17,48 @@ export type MyAddress = {
   country: string;
 };
 
-export type Name = {
-  fname: string;
-  mname: string;
-  lname: string;
+export type MyName = {
+  fName: string;
+  mName: string;
+  lName: string;
 };
 
-export type MyForm = {
-  name: Name;
+export type MyPhone = {
+  code: string;
+  number: string;
+};
+
+export type MyExperience = {
+  id: string;
+  startDate: string;
+  endDate: string;
   position: string;
-  mobile: string;
-  email: string;
-  address: MyAddress;
-  summary: string;
-  experiences: MyExperience[];
+  company: string;
+  location: string;
+  contributions: MyContribution[];
+};
+
+export type MyContribution = {
+  id: string;
+  details: string;
+};
+
+export type MySkill = {
+  id: string;
+  title: string;
+};
+
+export type MySkillSet = {
+  id: string;
+  category: string;
   skills: MySkill[];
-  education: MyEducation[];
+};
+
+export type MyEducation = {
+  id: string;
+  startDate: string;
+  endDate: string;
+  schoolName: string;
+  course: string;
+  location: string;
 };

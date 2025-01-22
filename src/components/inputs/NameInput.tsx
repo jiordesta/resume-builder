@@ -1,44 +1,24 @@
-import { useEffect, useState } from "react";
-import { handleInput } from "../utilities/handleInputs";
-import { MyForm, Name } from "../libs/types/forms";
+import { useState } from "react";
+import { MyResume } from "../../libs/types/forms";
+import { handleMyResumeFormChanges } from "../../utilities/handleFormChanges";
 
 interface NameInputProps {
   label: string;
-  form?: MyForm;
-  setForm: React.Dispatch<React.SetStateAction<MyForm | undefined>>;
-  dkey: string;
+  resumeForm: MyResume;
+  setResumeForm: React.Dispatch<React.SetStateAction<MyResume>>;
 }
 
 export default function NameInput({
   label,
-  form,
-  setForm,
-  dkey,
+  resumeForm,
+  setResumeForm,
 }: NameInputProps) {
   const [isFocus, setIsFocus] = useState(false);
-  const [name, setName] = useState<Name>();
 
-  useEffect(() => {
-    //@ts-ignore
-    setForm(handleInput(form, name, dkey));
-  }, [name]);
+  const handleFormInputs = (dkey: string, value: string) => {
+    const data = { name: { ...resumeForm.name, [dkey]: value } };
 
-  const handleFirstName = (e: any) => {
-    e.preventDefault();
-    //@ts-ignore
-    setName(handleInput(name, e.target.value, "fname"));
-  };
-
-  const handleMiddleInitial = (e: any) => {
-    e.preventDefault();
-    //@ts-ignore
-    setName(handleInput(name, e.target.value, "mname"));
-  };
-
-  const handleLastName = (e: any) => {
-    e.preventDefault();
-    //@ts-ignore
-    setName(handleInput(name, e.target.value, "lname"));
+    handleMyResumeFormChanges(resumeForm, setResumeForm, data);
   };
 
   return (
@@ -50,26 +30,29 @@ export default function NameInput({
       <h1 className="glowText uppercase">{label}</h1>
       <input
         type="text"
-        onChange={handleFirstName}
         placeholder="First Name"
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        onChange={(e) => handleFormInputs("fName", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
+      {
+        ///TODO new feature to get the middle name and display only the first letters ex. san jose -> sj
+      }
       <input
         type="text"
-        onChange={handleMiddleInitial}
         placeholder="Middle Initial"
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        onChange={(e) => handleFormInputs("mName", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
       <input
         type="text"
-        onChange={handleLastName}
         placeholder="Last Name"
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        onChange={(e) => handleFormInputs("lName", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
     </div>
