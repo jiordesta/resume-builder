@@ -62,6 +62,17 @@ export default function WorkExperienceComponent({
     handleMyResumeFormChanges(resumeForm, setResumeForm, data);
   };
 
+  const handleRemoveButton = () => {
+    let experiences = resumeForm.experiences;
+
+    experiences = experiences.filter(
+      (exp: MyExperience) => exp.id !== experience.id
+    );
+
+    const data = { experiences: experiences };
+    handleMyResumeFormChanges(resumeForm, setResumeForm, data);
+  };
+
   return (
     <div className="flex gap-4 w-full bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300 bg-opacity-10">
       <div className="w-full">
@@ -111,7 +122,10 @@ export default function WorkExperienceComponent({
           )}
         </ul>
       </div>
-      <button className=" border border-dashed border-teal rounded-md bg-teal bg-opacity-10 hover:bg-opacity-50 transition-all ease-in-out duration-300 uppercase glowText drop-shadow-lg px-2">
+      <button
+        className=" border border-dashed border-teal rounded-md bg-teal bg-opacity-10 hover:bg-opacity-50 transition-all ease-in-out duration-300 uppercase glowText drop-shadow-lg px-2"
+        onClick={handleRemoveButton}
+      >
         {"remove".split("").map((c: any, index) => (
           <p className="uppercase" key={index}>
             {c}
