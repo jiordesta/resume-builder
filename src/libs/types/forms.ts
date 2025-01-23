@@ -8,7 +8,7 @@ export type MyResume = {
   address: MyAddress;
   experiences: MyExperience[];
   skills: MySkillSet[];
-  education: MyEducation[];
+  educations: MyEducation[];
 };
 
 export type MyAddress = {

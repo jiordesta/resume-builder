@@ -78,13 +78,13 @@ export default function WorkExperienceComponent({
       <div className="w-full">
         <input
           type="text"
-          placeholder="Start"
+          placeholder="Date Hired"
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("startDate", e.target.value)}
         />
         <input
           type="text"
-          placeholder="End"
+          placeholder="Date Resigned"
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("endDate", e.target.value)}
         />

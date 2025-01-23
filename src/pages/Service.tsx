@@ -5,12 +5,12 @@ import { MyResume } from "../libs/types/forms";
 import { getDeviceType } from "../utilities/getDeviceType";
 import NameInput from "../components/inputs/NameInput";
 import { generateEmptyResumeForm } from "../utilities/generateEmptyForms";
-import PhoneInput from "../components/inputs/PhoneInput";
 import TextInput from "../components/inputs/TextInput";
 import AddressInput from "../components/inputs/AddressInput";
 import TextAreaInput from "../components/inputs/TextAreaInput";
 import ExperienceInput from "../components/inputs/ExperienceInput";
 import SkillsInput from "../components/inputs/SkillsInput";
+import EducationInput from "../components/inputs/EducationInput";
 
 export default function Service() {
   const [resumeForm, setResumeForm] = useState<MyResume>(
@@ -20,7 +20,7 @@ export default function Service() {
   const deviceType: DeviceType = getDeviceType();
 
   useEffect(() => {
-    //console.log(resumeForm);
+    console.log(resumeForm);
   }, [resumeForm]);
 
   return (
@@ -31,6 +31,12 @@ export default function Service() {
             resumeForm={resumeForm}
             label="full name"
             setResumeForm={setResumeForm}
+          />
+          <TextInput
+            resumeForm={resumeForm}
+            label="profession"
+            setResumeForm={setResumeForm}
+            dkey="profession"
           />
           <TextInput
             resumeForm={resumeForm}
@@ -73,6 +79,11 @@ export default function Service() {
           <SkillsInput
             resumeForm={resumeForm}
             label="Technical Skills"
+            setResumeForm={setResumeForm}
+          />
+          <EducationInput
+            resumeForm={resumeForm}
+            label="Education"
             setResumeForm={setResumeForm}
           />
         </div>

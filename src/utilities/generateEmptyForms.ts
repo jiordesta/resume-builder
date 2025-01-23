@@ -39,7 +39,7 @@ export const generateEmptyResumeForm = () => {
     address: newAddressForm,
     experiences: [generateEmptyMyExperienceForm()],
     skills: [generateEmptyMySkillSetForm()],
-    education: [],
+    educations: [generateEmptyMyEducationForm()],
   };
 
   return newResumeForm;

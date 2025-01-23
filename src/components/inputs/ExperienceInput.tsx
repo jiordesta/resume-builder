@@ -19,7 +19,6 @@ export default function ExperienceInput({
 }: ExperienceInputProps) {
   const handleAddNewExperienceForm = () => {
     const newExperienceForm = generateEmptyMyExperienceForm();
-    console.log(newExperienceForm);
     const newContributionForm = generateEmptyMyContributionForm();
     newExperienceForm.contributions.push(newContributionForm);
     const experienceNewList = [...resumeForm.experiences, newExperienceForm];
