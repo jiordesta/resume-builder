@@ -37,8 +37,8 @@ export const generateEmptyResumeForm = () => {
     phone: newPhoneForm,
     email: "",
     address: newAddressForm,
-    experiences: [],
-    skills: [],
+    experiences: [generateEmptyMyExperienceForm()],
+    skills: [generateEmptyMySkillSetForm()],
     education: [],
   };
 
@@ -72,7 +72,7 @@ export const generateEmptyMySkillSetForm = () => {
   const newMySkillForm: MySkillSet = {
     id: generateRandomId(),
     category: "",
-    skills: [],
+    skills: [generateEmptySkillForm()],
   };
 
   return newMySkillForm;

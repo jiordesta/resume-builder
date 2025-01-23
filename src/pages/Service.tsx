@@ -10,6 +10,7 @@ import TextInput from "../components/inputs/TextInput";
 import AddressInput from "../components/inputs/AddressInput";
 import TextAreaInput from "../components/inputs/TextAreaInput";
 import ExperienceInput from "../components/inputs/ExperienceInput";
+import SkillsInput from "../components/inputs/SkillsInput";
 
 export default function Service() {
   const [resumeForm, setResumeForm] = useState<MyResume>(
@@ -24,7 +25,7 @@ export default function Service() {
 
   return (
     <PageLayout id="create">
-      <div className="flex gap-2">
+      <div className="flex gap-2 pb-4">
         <div className="flex flex-col gap-2 w-full">
           <NameInput
             resumeForm={resumeForm}
@@ -67,6 +68,11 @@ export default function Service() {
           <ExperienceInput
             resumeForm={resumeForm}
             label="Work Experiences"
+            setResumeForm={setResumeForm}
+          />
+          <SkillsInput
+            resumeForm={resumeForm}
+            label="Technical Skills"
             setResumeForm={setResumeForm}
           />
         </div>

@@ -122,16 +122,19 @@ export default function WorkExperienceComponent({
           )}
         </ul>
       </div>
-      <button
-        className=" border border-dashed border-teal rounded-md bg-teal bg-opacity-10 hover:bg-opacity-50 transition-all ease-in-out duration-300 uppercase glowText drop-shadow-lg px-2"
-        onClick={handleRemoveButton}
-      >
-        {"remove".split("").map((c: any, index) => (
-          <p className="uppercase" key={index}>
-            {c}
-          </p>
-        ))}
-      </button>
+      <div className="flex items-start">
+        <button
+          className=" border border-dashed border-teal rounded-md bg-teal bg-opacity-10 hover:bg-opacity-50 transition-all ease-in-out duration-300 uppercase glowText drop-shadow-lg px-2"
+          onClick={handleRemoveButton}
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 }
+// {"remove".split("").map((c: any, index) => (
+//   <p className="uppercase" key={index}>
+//     {c}
+//   </p>
+// ))}
