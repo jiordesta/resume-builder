@@ -9,6 +9,7 @@ import PhoneInput from "../components/inputs/PhoneInput";
 import TextInput from "../components/inputs/TextInput";
 import AddressInput from "../components/inputs/AddressInput";
 import TextAreaInput from "../components/inputs/TextAreaInput";
+import ExperienceInput from "../components/inputs/ExperienceInput";
 
 export default function Service() {
   const [resumeForm, setResumeForm] = useState<MyResume>(
@@ -18,7 +19,7 @@ export default function Service() {
   const deviceType: DeviceType = getDeviceType();
 
   useEffect(() => {
-    console.log(resumeForm);
+    //console.log(resumeForm);
   }, [resumeForm]);
 
   return (
@@ -62,6 +63,11 @@ export default function Service() {
                 : 5
             }
             placeholder="Short Introduction"
+          />
+          <ExperienceInput
+            resumeForm={resumeForm}
+            label="Work Experiences"
+            setResumeForm={setResumeForm}
           />
         </div>
         <div className="w-full bg-lightGray rounded-md p-2 bg-opacity-10">
