@@ -1,10 +1,12 @@
 import {
   MyAddress,
+  MyCertificate,
   MyContribution,
   MyEducation,
   MyExperience,
   MyName,
   MyPhone,
+  MyProject,
   MyResume,
   MySkill,
   MySkillSet,
@@ -18,10 +20,7 @@ export const generateEmptyResumeForm = () => {
     lName: "",
   };
 
-  const newPhoneForm: MyPhone = {
-    code: "",
-    number: "",
-  };
+  const newPhoneForm: MyPhone = "";
 
   const newAddressForm: MyAddress = {
     city: "",
@@ -40,6 +39,8 @@ export const generateEmptyResumeForm = () => {
     experiences: [generateEmptyMyExperienceForm()],
     skills: [generateEmptyMySkillSetForm()],
     educations: [generateEmptyMyEducationForm()],
+    projects: [generateEmptyMyProjectForm()],
+    certificates: [generateEmptyCertificateForm()],
   };
 
   return newResumeForm;
@@ -85,6 +86,30 @@ export const generateEmptySkillForm = () => {
   };
 
   return newSkillForm;
+};
+
+export const generateEmptyMyProjectForm = () => {
+  const newMyProjectForm: MyProject = {
+    id: generateRandomId(),
+    title: "",
+    description: "",
+    contributions: [generateEmptyMyContributionForm()],
+    tools: "",
+    links: "",
+  };
+
+  return newMyProjectForm;
+};
+
+export const generateEmptyCertificateForm = () => {
+  const newMyCertificateForm: MyCertificate = {
+    id: generateRandomId(),
+    title: "",
+    organization: "",
+    dateCompleted: "",
+  };
+
+  return newMyCertificateForm;
 };
 
 export const generateEmptyMyEducationForm = () => {

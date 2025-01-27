@@ -9,6 +9,8 @@ export type MyResume = {
   experiences: MyExperience[];
   skills: MySkillSet[];
   educations: MyEducation[];
+  projects: MyProject[];
+  certificates: MyCertificate[];
 };
 
 export type MyAddress = {
@@ -23,10 +25,7 @@ export type MyName = {
   lName: string;
 };
 
-export type MyPhone = {
-  code: string;
-  number: string;
-};
+export type MyPhone = string;
 
 export type MyExperience = {
   id: string;
@@ -52,6 +51,24 @@ export type MySkillSet = {
   id: string;
   category: string;
   skills: MySkill[];
+};
+
+export type MyProject = {
+  id: string;
+  title: string;
+  description: string;
+  contributions: MyContribution[];
+  tools: string;
+  links: string;
+};
+
+export type MyCertificate = {
+  id: string;
+  title: string;
+  organization: string;
+  dateCompleted: string;
+  link?: string;
+  relevance?: string;
 };
 
 export type MyEducation = {

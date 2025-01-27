@@ -39,8 +39,8 @@ export default function TextAreaInput({
       <textarea
         onChange={onInputChange}
         placeholder={placeholder}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         rows={rows}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />

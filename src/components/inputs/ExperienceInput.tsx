@@ -1,9 +1,5 @@
-import { useEffect } from "react";
 import { MyExperience, MyResume } from "../../libs/types/forms";
-import {
-  generateEmptyMyContributionForm,
-  generateEmptyMyExperienceForm,
-} from "../../utilities/generateEmptyForms";
+import { generateEmptyMyExperienceForm } from "../../utilities/generateEmptyForms";
 import WorkExperienceComponent from "../WorkExperienceComponent";
 
 interface ExperienceInputProps {
@@ -19,20 +15,14 @@ export default function ExperienceInput({
 }: ExperienceInputProps) {
   const handleAddNewExperienceForm = () => {
     const newExperienceForm = generateEmptyMyExperienceForm();
-    const newContributionForm = generateEmptyMyContributionForm();
-    newExperienceForm.contributions.push(newContributionForm);
     const experienceNewList = [...resumeForm.experiences, newExperienceForm];
     setResumeForm({ ...resumeForm, ["experiences"]: experienceNewList });
   };
 
-  //   useEffect(() => {
-  //     console.log(resumeForm);
-  //   }, [resumeForm]);
-
   return (
-    <>
+    <div className="border border-dashed border-lightGray p-2 rounded-xl space-y-2">
       <div className="bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300 bg-opacity-10">
-        <h1 className="glowText uppercase">{label}</h1>
+        <h1 className="glowText uppercase text-2xl font-bold">{label}</h1>
       </div>
       {resumeForm.experiences.map((experience: MyExperience) => (
         <WorkExperienceComponent
@@ -48,6 +38,6 @@ export default function ExperienceInput({
       >
         new experience form
       </button>
-    </>
+    </div>
   );
 }

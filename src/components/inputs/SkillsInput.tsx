@@ -23,9 +23,9 @@ export default function SkillsInput({
   };
 
   return (
-    <>
+    <div className="border border-dashed border-lightGray p-2 rounded-xl space-y-2">
       <div className="bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300 bg-opacity-10">
-        <h1 className="glowText uppercase">{label}</h1>
+        <h1 className="glowText uppercase text-2xl font-bold">{label}</h1>
       </div>
       {resumeForm.skills.map((skillSet: MySkillSet) => (
         <SkillSetComponent
@@ -41,6 +41,6 @@ export default function SkillsInput({
       >
         new skillset form
       </button>
-    </>
+    </div>
   );
 }

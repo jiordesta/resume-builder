@@ -3,6 +3,7 @@ import { MyContribution, MyExperience, MyResume } from "../libs/types/forms";
 import { handleMyResumeFormChanges } from "../utilities/handleFormChanges";
 import WorkContributionComponent from "./WorkContributionComponent";
 import { generateEmptyMyContributionForm } from "../utilities/generateEmptyForms";
+import { placeholders } from "../libs/data/text";
 
 interface WorkExperienceComponentProps {
   resumeForm: MyResume;
@@ -78,31 +79,31 @@ export default function WorkExperienceComponent({
       <div className="w-full">
         <input
           type="text"
-          placeholder="Date Hired"
+          placeholder={placeholders.dateHired}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("startDate", e.target.value)}
         />
         <input
           type="text"
-          placeholder="Date Resigned"
+          placeholder={placeholders.dateEnded}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("endDate", e.target.value)}
         />
         <input
           type="text"
-          placeholder="Your Position"
+          placeholder={placeholders.position}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("position", e.target.value)}
         />
         <input
           type="text"
-          placeholder="Company Name"
+          placeholder={placeholders.company}
           onChange={(e: any) => handleFormInputs("company", e.target.value)}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
         />
         <input
           type="text"
-          placeholder="Location"
+          placeholder={placeholders.location}
           onChange={(e: any) => handleFormInputs("location", e.target.value)}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
         />

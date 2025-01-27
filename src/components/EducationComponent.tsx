@@ -1,3 +1,4 @@
+import { placeholders } from "../libs/data/text";
 import { MyEducation, MyResume } from "../libs/types/forms";
 import { handleMyResumeFormChanges } from "../utilities/handleFormChanges";
 
@@ -40,31 +41,31 @@ export default function EducationComponent({
       <div className="w-full">
         <input
           type="text"
-          placeholder="Date Enrolled"
+          placeholder={placeholders.schoolStarted}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("startDate", e.target.value)}
         />
         <input
           type="text"
-          placeholder="Date Graduated"
+          placeholder={placeholders.schoolEnded}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("endDate", e.target.value)}
         />
         <input
           type="text"
-          placeholder="Course"
+          placeholder={placeholders.course}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("course", e.target.value)}
         />
         <input
           type="text"
-          placeholder="School Name"
+          placeholder={placeholders.schoolName}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("schoolName", e.target.value)}
         />
         <input
           type="text"
-          placeholder="Location"
+          placeholder={placeholders.schoolLocation}
           className="border-none outline-none bg-transparent focus:ring-0 w-full"
           onChange={(e: any) => handleFormInputs("location", e.target.value)}
         />

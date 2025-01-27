@@ -1,24 +1,28 @@
-import { placeholders } from "../libs/data/text";
-import { MyContribution, MyExperience, MyResume } from "../libs/types/forms";
+import {
+  MyContribution,
+  MyExperience,
+  MyProject,
+  MyResume,
+} from "../libs/types/forms";
 import { handleMyResumeFormChanges } from "../utilities/handleFormChanges";
 
-interface WorkContributionComponentProps {
+interface ProjectContributionComponentProps {
   resumeForm: MyResume;
   setResumeForm: React.Dispatch<React.SetStateAction<MyResume>>;
-  experience: MyExperience;
+  project: MyProject;
   contribution: MyContribution;
   index: any;
 }
 
-export default function WorkContributionComponent({
+export default function ProjectContributionComponent({
   resumeForm,
   setResumeForm,
-  experience,
+  project,
   contribution,
   index,
-}: WorkContributionComponentProps) {
+}: ProjectContributionComponentProps) {
   const handleInputChange = (e: any) => {
-    let contributions = experience.contributions;
+    let contributions = project.contributions;
 
     const contIndex = contributions.findIndex(
       (cont: MyContribution) => cont.id === contribution.id
@@ -26,15 +30,15 @@ export default function WorkContributionComponent({
 
     contributions[contIndex] = { ...contribution, ["details"]: e.target.value };
 
-    let experiences = resumeForm.experiences;
+    let projects = resumeForm.projects;
 
-    const expIndex = resumeForm.experiences.findIndex(
-      (exp: MyExperience) => exp.id === experience.id
+    const projIndex = resumeForm.projects.findIndex(
+      (exp: MyProject) => exp.id === project.id
     );
 
-    experiences[expIndex] = { ...experience, ["contributions"]: contributions };
+    projects[projIndex] = { ...project, ["contributions"]: contributions };
 
-    const data = { experiences: experiences };
+    const data = { projects: projects };
     handleMyResumeFormChanges(resumeForm, setResumeForm, data);
   };
 
@@ -43,7 +47,6 @@ export default function WorkContributionComponent({
       <h1>{`${parseInt(index) + 1}:`}</h1>
       <textarea
         rows={1}
-        placeholder={placeholders.contribution}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
         onChange={handleInputChange}
       />

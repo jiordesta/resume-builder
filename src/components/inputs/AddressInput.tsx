@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MyResume } from "../../libs/types/forms";
 import { handleMyResumeFormChanges } from "../../utilities/handleFormChanges";
+import { placeholders } from "../../libs/data/text";
 
 interface AddressInputProps {
   label: string;
@@ -30,25 +31,25 @@ export default function AddressInput({
       <h1 className="glowText uppercase">{label}</h1>
       <input
         type="text"
-        placeholder="City"
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        placeholder={placeholders.city}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         onChange={(e) => handleFormInputs("city", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
       <input
         type="text"
-        placeholder="Province"
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        placeholder={placeholders.province}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         onChange={(e) => handleFormInputs("province", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
       <input
         type="text"
-        placeholder="Country"
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        placeholder={placeholders.country}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         onChange={(e) => handleFormInputs("country", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />

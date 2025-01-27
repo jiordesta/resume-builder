@@ -3,6 +3,7 @@ import { MyResume, MySkill, MySkillSet } from "../libs/types/forms";
 import { handleMyResumeFormChanges } from "../utilities/handleFormChanges";
 import SkillComponent from "./SkillComponent";
 import { generateEmptySkillForm } from "../utilities/generateEmptyForms";
+import { placeholders } from "../libs/data/text";
 
 interface SkillSetComponentProps {
   resumeForm: MyResume;
@@ -69,29 +70,31 @@ export default function SkillSetComponent({
   };
 
   return (
-    <div className="flex gap-2 bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300 bg-opacity-10 w-full">
-      <div className="w-[35%] flex flex-col">
-        <h1 className="uppercase glowText">Skillset Category</h1>
-        <input
-          type="text"
-          placeholder="Category"
-          onChange={handleCategoryInputChange}
-          className="border-none outline-none bg-transparent focus:ring-0 w-full"
-        />
-      </div>
-      <div className="w-[65%] ">
-        <h1 className="uppercase glowText">Skills</h1>
-        <div className="space-y-2">
-          {skillSet.skills.map((skill: MySkill, index: any) => (
-            <SkillComponent
-              key={skill.id}
-              skill={skill}
-              resumeForm={resumeForm}
-              setResumeForm={setResumeForm}
-              skillSet={skillSet}
-              index={index}
-            />
-          ))}
+    <div className="flex justify-between gap-2 bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300 bg-opacity-10 w-full">
+      <div className="flex flex-col gap-2">
+        <div className="w-full flex flex-col">
+          <h1 className="uppercase glowText">Skillset Category</h1>
+          <input
+            type="text"
+            placeholder={placeholders.category}
+            onChange={handleCategoryInputChange}
+            className="border-none outline-none bg-transparent focus:ring-0 w-full"
+          />
+        </div>
+        <div className="w-full">
+          <h1 className="uppercase glowText">Skills</h1>
+          <div className="space-y-2">
+            {skillSet.skills.map((skill: MySkill, index: any) => (
+              <SkillComponent
+                key={skill.id}
+                skill={skill}
+                resumeForm={resumeForm}
+                setResumeForm={setResumeForm}
+                skillSet={skillSet}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="flex items-start">

@@ -38,8 +38,8 @@ export default function TextInput({
         type="text"
         onChange={onInputChange}
         placeholder={placeholder}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
     </div>

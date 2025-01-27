@@ -1,3 +1,4 @@
+import { placeholders } from "../libs/data/text";
 import { MyResume, MySkill, MySkillSet } from "../libs/types/forms";
 import { handleMyResumeFormChanges } from "../utilities/handleFormChanges";
 
@@ -41,7 +42,7 @@ export default function SkillComponent({
       <h1>{`${parseInt(index) + 1}:`}</h1>
       <input
         type="text"
-        placeholder="Skill Name"
+        placeholder={placeholders.skillName}
         onChange={handleInputChange}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />

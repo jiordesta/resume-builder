@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MyResume } from "../../libs/types/forms";
 import { handleMyResumeFormChanges } from "../../utilities/handleFormChanges";
+import { placeholders } from "../../libs/data/text";
 
 interface NameInputProps {
   label: string;
@@ -30,9 +31,9 @@ export default function NameInput({
       <h1 className="glowText uppercase">{label}</h1>
       <input
         type="text"
-        placeholder="First Name"
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        placeholder={placeholders.fName}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         onChange={(e) => handleFormInputs("fName", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
@@ -41,17 +42,17 @@ export default function NameInput({
       }
       <input
         type="text"
-        placeholder="Middle Initial"
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        placeholder={placeholders.mName}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         onChange={(e) => handleFormInputs("mName", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
       <input
         type="text"
-        placeholder="Last Name"
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        placeholder={placeholders.lName}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
         onChange={(e) => handleFormInputs("lName", e.target.value)}
         className="border-none outline-none bg-transparent focus:ring-0 w-full"
       />
