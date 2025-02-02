@@ -71,7 +71,7 @@ export default function SkillSetComponent({
 
   return (
     <div className="flex justify-between gap-2 bg-lightGray rounded-md p-2 transition-all ease-in-out duration-300 bg-opacity-10 w-full">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full">
         <div className="w-full flex flex-col">
           <h1 className="uppercase glowText">Skillset Category</h1>
           <input
