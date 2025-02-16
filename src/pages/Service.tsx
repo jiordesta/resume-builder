@@ -21,6 +21,7 @@ import EducationInput from "../components/inputs/EducationInput";
 import ProjectInput from "../components/inputs/ProjectInput";
 import CertificationInput from "../components/inputs/CertificationInput";
 import { placeholders } from "../libs/data/text";
+import Preview from "../components/Preview";
 
 export default function Service() {
   const [resumeForm, setResumeForm] = useState<MyResume>(
@@ -32,93 +33,6 @@ export default function Service() {
   useEffect(() => {
     //console.log(resumeForm);
   }, [resumeForm]);
-
-  const Preview = () => {
-    return (
-      <div className="w-full bg-lightGray rounded-md p-6 bg-opacity-10">
-        <h1 className="uppercase font-bold text-3xl">{`${
-          resumeForm.name.fName ?? ""
-        } ${resumeForm.name.mName ?? ""} ${resumeForm.name.lName ?? ""}`}</h1>
-        <h1 className="capitalize">{`${resumeForm.profession ?? ""}`}</h1>
-        <h1>{`${resumeForm.phone ?? ""}`}</h1>
-        <h1 className="underline">{`${resumeForm.email ?? ""}`}</h1>
-        <h1 className="flex gap-1 capitalize">
-          <p
-            className={`${resumeForm.address.city ? "" : "hidden"}`}
-          >{`${resumeForm.address.city},`}</p>
-          <p
-            className={`${resumeForm.address.province ? "" : "hidden"}`}
-          >{`${resumeForm.address.province},`}</p>
-          <p
-            className={`${resumeForm.address.country ? "" : "hidden"}`}
-          >{`${resumeForm.address.country},`}</p>
-        </h1>
-        {resumeForm.summary && (
-          <>
-            <h1 className="text-2xl uppercase mt-4">professional summary</h1>
-            <hr className="mt-2" />
-          </>
-        )}
-        <p>{`${resumeForm.summary ?? ""}`}</p>
-        {resumeForm.experiences.length > 0 && (
-          <>
-            <h1 className="text-2xl uppercase mt-4">work experiences</h1>
-            <hr className="mt-2" />
-          </>
-        )}
-        {resumeForm.experiences.map((experience: MyExperience) => (
-          <div key={experience.id} className="mb-4">
-            <div className="flex justify-between font-bold">
-              <h1 className="capitalize">{experience.position}</h1>
-              <h1 className="uppercase">{`${experience.startDate} - ${experience.endDate}`}</h1>
-            </div>
-            <div className="flex justify-between">
-              <h1 className="capitalize">{experience.company}</h1>
-              <h1 className="capitalize">{experience.location}</h1>
-            </div>
-            <ul>
-              {experience.contributions
-                .filter((cont: MyContribution) => cont.details !== "")
-                .map((cont: MyContribution) => (
-                  <li key={cont.id} className="flex items-center gap-2">
-                    <div className="p-1 bg-lightGray" />
-                    <h1>{cont.details}</h1>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        ))}
-        <h1 className="text-2xl uppercase mt-4">technical skills</h1>
-        <hr className="mt-2" />
-        <ul className="capitalize">
-          {resumeForm.skills.map((skill: MySkillSet) => (
-            <li key={skill.id}>
-              <h1>{`${skill.category}: ${skill.skills
-                .filter((sk: MySkill) => sk.title !== "")
-                .map((sk: MySkill) => sk.title)
-                .join(", ")}`}</h1>
-            </li>
-          ))}
-        </ul>
-        <h1 className="text-2xl uppercase mt-4">education</h1>
-        <hr className="mt-2" />
-        <ul>
-          {resumeForm.educations.map((education: MyEducation) => (
-            <li key={education.id} className="capitalize mb-4">
-              <div className="flex justify-between font-bold">
-                <h1>{education.schoolName}</h1>
-                <h1 className="uppercase">{`${education.startDate} - ${education.endDate}`}</h1>
-              </div>
-              <div className="flex justify-between">
-                <h1>{education.course}</h1>
-                <h1>{education.location}</h1>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
 
   return (
     <PageLayout id="create">
@@ -204,7 +118,7 @@ export default function Service() {
             setResumeForm={setResumeForm}
           />
         </div>
-        <Preview />
+        <Preview resumeForm={resumeForm} />
       </div>
     </PageLayout>
   );
